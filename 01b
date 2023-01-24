@@ -1,20 +1,31 @@
-import pandas as pa import numov as no
-data = pd.read_csv ("C: /Users\Desktop\MScII SEM 3\machine learning pracs/labl.csy")
+import pandas as pd
+import numpy as np
+
+data=pd.read_csv("")
 print (data)
-concepts = mp.array(data) I:, :-1]
-print concentsl
-target = np.arravidatal:.-_.
-print target def train con,tar:
-for i,val in enumerate (tar):
-if val == Ives!:
-specific h = con[i].copy ()
-real
-for i,val in enumerate (con) :
-if tar[i] == 'yes':
-for a in range (len (specific h)):
-if val[x] != specific_h[x]:
-specific h[x]
-else:
-pass
-return specific h
-print (train (concepts, target))
+
+concept =np.array(data)[:,:-1]
+print(concept)
+
+tartget=np.array(data)[:,-1]
+print(tartget)
+
+def train(con, tar)
+
+for i ,valenumerate (tar)
+if val=='yes':
+    
+specific_h=con[i].copy()
+
+break
+
+for i,val enumerate (con)
+ if tar[i]=='yes':
+     for x in range (len(specif_h))
+     if val[x]!=sepecific_h[x]:
+         specific_h[x]='?'
+         else:
+             pass
+         return specific_h
+         
+         print(train(concept,target))
