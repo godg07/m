@@ -1,0 +1,18 @@
+import pandas as pd 
+import matplotlib.pyplot as plt
+ df=pd.read_csv(" ")
+ 
+ df.head()
+ 
+ plt.scatter(df.Age,df.have_insurance,marker='+',color='red')
+ plt.show()
+ 
+ from sklearn.model_selection import train_test_split
+ x_train, y_train , x_test ,y_test=train_test_split(df['Age'],df.have_insurance,test_size=0.1)
+ 
+ from sklearn.linear_model import LogisticRegression
+ lr=LogisticRegression()
+ print(lr.fit(x_train,y_train))
+ print(lr.score(x_test,y_test))
+ print(lr.predict(x_test))
+ print(lr.predict_probability(x_test))
