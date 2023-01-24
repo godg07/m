@@ -1,0 +1,19 @@
+import pandas as pd import matplotlib.pyplot as pIt
+df = pd. read csv ("C:/Users\ Sakshiii\ Documents\MScIT SEM 3\machine learning pracs/Cars.cv#)
+df.head()
+plt.scatter (df ['Milage'],df ['Sell Price'])
+plt.show ()
+pit.scatter (df ['Age'], df ['Sell Price'])
+plt.show()
+X = df [['Milage', 'Age'11
+} = df 'Sell Price'1
+print (X)
+print (Y)
+Irom sKlearn.mode_ selection import train test split
+X train, X test, Y
+print (len (X_test))
+from sklearn.Linear_ model import Linearregression
+clf = LinearRegression /)
+print (clf. fit (X train,Y train))
+print (clf.predict (X test))
+print (clf.score (x test,' test))
