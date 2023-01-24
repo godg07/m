@@ -1,0 +1,23 @@
+import padas as pd
+import numpy as np
+import csv
+from pgmpy.models import BayesianNetwork
+from pgmpy.estimator import maximumlikelihoodEstimator
+from pgmpy.inference import variableElimination
+
+hD=pd.read_csv(" ")
+hD= hD.replace('?',np.nan)
+print(hD.head())
+
+model=BayesianNetwork([('age','target'),('target','tag'),
+('bloo','glow'),('bgg','bag'),
+('target','hello'),('tart','sam')])
+
+model.fit(hD,estimator=MaximumlikelihoodEstimator)
+
+hDI=VariableElimination(model)
+
+q=hDI.query(variables=['tag'],evidence={'target':1},joint=false)
+print(q['tag'])
+
+
