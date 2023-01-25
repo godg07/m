@@ -1,0 +1,25 @@
+import pandas as pd 
+import numpy as np
+import matplotlib.pyplot as plt
+from apyori import apriori
+
+data=pd.read_csv(" ",delimiter="",header=None)
+
+print(data.head())
+print(data.shape)
+
+data_list=[]
+
+for row in range(0,20):
+data_list.append([str(data.values[row,colunm]) for column in rang(0,9)])
+
+print(data_list)
+
+rule = apriori(data_list,min_support=0.25,min_confidance=0.6,min_lift=2,min_length=2)
+
+result=list(rule)
+print(len(result))
+
+for i in range(0,3):
+print(f"association {i+1}is :{result[i]}")
+print('-'*25)
