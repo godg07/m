@@ -1,0 +1,26 @@
+import pandas as pd 
+import numpy as np
+from sklearn import datasets 
+
+wine=datasets.load_wine()
+print(wine)
+print(wine.feature_names)
+print(wine.target_names)
+
+X=pd.DataFrame(wine['data'])
+print(X.head())
+print(wine.data.shape)
+y=print(wine.target)
+
+from sklearn.model_selection import train_test_split
+x_train, y_train , x_test, y_test =train_test_split(wine.data,wine.target,test_size=0.30,random_state=109)
+
+from sklearn.naive_bayes import GaussianNB
+gb=GaussianNB().fit(x_train,y_train)
+pre=gb.predict(x_test)
+print(pre)
+
+from sklearn import metrics
+print(metrics.accuracy_score(y_train,pre))
+print(metrics.confusion_metrix(y_train,pre))
+
