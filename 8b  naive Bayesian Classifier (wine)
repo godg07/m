@@ -22,5 +22,5 @@ print(pre)
 
 from sklearn import metrics
 print(metrics.accuracy_score(y_train,pre))
-print(metrics.confusion_metrix(y_train,pre))
+print(metrics.confusion_matrix(y_train,pre))
 
