@@ -1,6 +1,6 @@
 import pandas as pd
 from matplotlib import pyplot as plt
-df = pd.read_csv("C:/Users\Sakshiii\Documents\ML/insurance_data.csv")
+df = pd.read_csv("C:/Users\Documents\ML/insurance_data.csv")
 df.head()
 plt.scatter(df.Age,df.have_insurance,marker='+',color='red')
 plt.show()
