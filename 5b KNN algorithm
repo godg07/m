@@ -5,7 +5,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn import preprocessing
 from sklearn.model_selection import train_test_split
 
-iris= pd.read_csv('/Users/ankittiwari/Downloads/iris.csv') 
+iris= pd.read_csv('/Users/Downloads/iris.csv') 
 print('Head',iris.head()) 
 print('Shape',iris.shape) 
 print(iris['variety'].value_counts())
