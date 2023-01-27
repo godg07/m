@@ -1,6 +1,6 @@
 import pandas as pd
 import matplotlib.pyplot as plt
-df = pd.read_csv("C:/Users\Sakshiii\Documents\ML/Cars.csv")
+df = pd.read_csv("C:/Users\Documents\ML/Cars.csv")
 df.head()
 
 plt.scatter(df['Milage'],df['Sell Price'])
