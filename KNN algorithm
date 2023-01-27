@@ -1,0 +1,47 @@
+import pandas as pd
+import numpy as np
+from matplotlib import pyplot as plt
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn import preprocessing
+from sklearn.model_selection import train_test_split
+
+iris= pd.read_csv('/Users/ankittiwari/Downloads/iris.csv') 
+print('Head',iris.head()) 
+print('Shape',iris.shape) 
+print(iris['variety'].value_counts())
+print('Columns',iris.columns) 
+print('Values',iris.values)
+
+
+X=iris.iloc[:,:4] 
+print('Display X',X.head())
+
+y=iris.iloc[:,-1] 
+print('Display y',y.head())
+      
+X=preprocessing.StandardScaler().fit_transform(X)
+print('Display the preprocessing data',X[0:4])
+      
+X_train, X_test, Y_train, Y_test = train_test_split(X,y,test_size=0.3) 
+print(Y_test.shape)
+      
+knnmodel=KNeighborsClassifier(n_neighbors=3) 
+knnmodel.fit(X_train,Y_train)
+      
+Y_pred = knnmodel.predict(X_test) 
+print(Y_pred)
+
+
+from sklearn.metrics import accuracy_score
+acc=accuracy_score(Y_test,Y_pred)
+print('Accuracy',acc)    
+
+
+from sklearn.metrics import confusion_matrix
+cm=confusion_matrix(Y_test.values,Y_pred)
+print('confusion matrix',cm)
+
+cm1=pd.DataFrame(data=cm,index=['Setosa','Versicolor','Virginica'],columns=['Setosa','Versicolor','Virginica'])
+print(cm1)
+pred_output=pd.DataFrame(data=[Y_test.values,Y_pred],index=['Y_test','Y_pred'])
+print(pred_output.transpose())
