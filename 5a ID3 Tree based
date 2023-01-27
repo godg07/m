@@ -2,15 +2,12 @@
 
 
 
-
-
-
 import warnings
 warnings.filterwarnings('ignore')
 
 import pandas as pd
 from pandas import DataFrame
-df_tennis = pd.DataFrame(data=pd.read_csv('/Users/ankittiwari/Downloads/PlayTennis.csv'))
+df_tennis = pd.DataFrame(data=pd.read_csv('/Users/Downloads/PlayTennis.csv'))
 
 def entropy(probs):
     import math
