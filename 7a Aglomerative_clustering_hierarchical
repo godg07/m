@@ -4,29 +4,44 @@ import matplotlib.pyplot as plt
 from sklearn.cluster import AgglomerativeClustering
 from scipy.cluster import hierarchy
 
+
 data = pd.read_csv("C:/ML/penguins.csv")
 data.head()
 
+
 data['species'].value_counts()
+
 
 print(data.shape)
 
+
 df = data[['bill_length_mm', 'flipper_length_mm']]
 df = df.dropna(axis=0)
+
+
 df.head()
+
 
 clusters = hierarchy.linkage(df, method="ward")
 plt.figure(figsize=(8, 6))
 dendrogram = hierarchy.dendrogram(clusters)
-
 plt.axhline(150, color='red', linestyle='--');
-
 plt.axhline(100, color='crimson');
 
-clustering_model = AgglomerativeClustering(n_clusters=3,
-linkage="ward")
+
+clustering_model = AgglomerativeClustering(n_clusters=3,linkage="ward")
 clustering_model.fit(df)
 labels = clustering_model.labels_
+
+fig, axes = plt.subplots(nrows=1, ncols=2, figsize=(15,5))
+sns.scatterplot(ax=axes[0], data=df, x='bill_length_mm',y='flipper_length_mm').set_title('Without cliustering')
+sns.scatterplot(ax=axes[1], data=df, x='bill_length_mm',y='flipper_length_mm', hue=clustering_model.labels_).set_title('With clustering');
+
+
+clustering_model_no_clusters = AgglomerativeClustering(linkage="ward")
+clustering_model_no_cluster.fit(df)
+labels_no_cluster = clustering_model_no_clusters.labels_
+
 
 fig, axes = plt.subplots(nrows=1, ncols=2, figsize=(15,5))
 sns.scatterplot(ax=axes[0], data=df, x='bill_length_mm',y='flipper_length_mm').set_title('Without cliustering')
