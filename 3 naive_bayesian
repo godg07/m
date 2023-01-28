@@ -19,18 +19,17 @@ xtrain_dtm = count_vect.fit_transform(xtrain)
 xtest_dtm=count_vect.transform(xtest)
 print('\n The words or Tokens in the text documents \n',count_vect.get_feature_names_out())
 
-df=pd.DataFrame(xtrain_dtm.toarray(),columns = count_vect.get_feature_names())
 
 from sklearn.naive_bayes import MultinomialNB
 
 clf = MultinomialNB().fit(xtrain_dtm,ytrain)
 predicted = clf.predict(xtest_dtm)
 
-from sklearn import metrics
-print('\n Accuracy of the classifer is ', metrics.accuracy_score(ytest,predicted))
-
 print(xtest)
 print(predicted)
 
+
+from sklearn import metrics
+print('\n Accuracy of the classifer is ', metrics.accuracy_score(ytest,predicted))
 print('\n Confusion matrix\n', metrics.confusion_matrix(ytest,predicted))
 print('\n The value of Recall',metrics.recall_score(ytest,predicted))
